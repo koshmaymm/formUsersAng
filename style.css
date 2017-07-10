@@ -1,0 +1,35 @@
+.btn {
+    outline: none !important;
+}
+
+#myForm {
+    background-color: #E6E6FA;
+}
+
+.form-group {
+    background-color: #FFEBCD;
+}
+
+.location {
+    max-width: 48%;
+    float: left;
+}
+
+#locationLongitude {
+    margin-left: 10px;
+    float: right;
+}
+
+.addButtonLast {
+    float: right;
+}
+
+.inputConfirm {
+    display: none;
+}
+
+.test {
+    min-width: 150px;
+    min-height: 800px;
+    background-color: #AFEEEE;
+}

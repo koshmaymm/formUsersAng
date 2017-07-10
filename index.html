@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="exampleApp">
+
+<head>
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+
+<body ng-controller="defaultCtrl">
+    <div class="container-fluid">
+
+        <form name="myForm" class="form-horizontal col-sm-offset-1 col-sm-6" id="myForm">
+
+            <div class="form-group">
+                <label class="col-sm-4 control-label">Add\Edit a User Account:</label>
+            </div>
+
+            <div class="form-group">
+                <label for="inputUserAccount" class="col-sm-4 control-label">Account:</label>
+                <div class="col-sm-6">
+                    <select size="1" class="form-control" id="inputUserAccount" ng-model="inputUserAccount">
+                            <option selected value="Add New">Add New</option>
+                            <option value="Admin">Admin</option>
+                            <option value="First User">First User</option>
+                            <option value="Second User">Second User</option>
+                            <option value="Third User">Third User</option>  
+                        </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="inputName" class="col-sm-4 control-label requireFields">Name * :</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="inputName" ng-model="inputName">
+                    <h5>You don't filled name</h5>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="inputUserType" class="col-sm-4 control-label">User Type:</label>
+                <div class="col-sm-6">
+                    <select size="1" class="form-control" id="inputUserType" ng-model="inputUserType">
+                            <option value="type1" ng-selected>IOT(C&C)</option>
+                            <option value="type2">Some type 2</option>
+                            <option value="type3">Some type 3</option>
+                            <option value="type4">Some type 4</option>
+                        </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="inputProfile" class="col-sm-4 control-label">Profile:</label>
+                <div class="col-sm-6">
+                    <select size="1" class="form-control" id="inputProfile" ng-model="inputProfile">
+                            <option ng-selected value="Client">Client</option>
+                            <option value="Admin">Admin</option>
+                            <option value="type22">Some type 22</option>
+                            <option value="type33">Some type 33</option>
+                            <option value="type43">Some type 44</option>
+                        </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="inputLevel" class="col-sm-4 control-label">Level:</label>
+                <div class="col-sm-6">
+                    <select size="1" class="form-control" id="inputLevel" ng-model="inputLevel">
+                            <option selected value="1">1</option>
+                            <option value="level2">2</option>
+                            <option value="level3">3</option>
+                            <option value="level4">4</option>
+                        </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="firstName" class="col-sm-4 control-label">First Name :</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="firstName" ng-model="firstName">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="lastName" class="col-sm-4 control-label">Last Name :</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="lastName" ng-model="lastName">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="inputPassword" class="col-sm-4 control-label requireFields">Password * :</label>
+                <div class="col-sm-6">
+                    <input type="password" class="form-control" id="inputPassword" ng-model="inputPassword">
+                    <h5>You don't filled password</h5>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="inputConfirm" class="col-sm-4 control-label requireFields">Confirm * :</label>
+                <div class="col-sm-6">
+                    <input type="password" class="form-control" id="inputConfirm" ng-model="inputConfirm">
+                    <h5 class="inputConfirm">You don't filled password again</h5>
+                    <h5 class="inputConfirm">Passwords are not identical</h5>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="inputEmail" class="col-sm-4 control-label">Email :</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="inputEmail" ng-model="inputEmail">
+                </div>
+                <div class="col-sm-1">
+                    <button type="button" class="btn btn-default active buttons" id="sendEmail">Send</button>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="landPhone" class="col-sm-4 control-label">Land Phone :</label>
+                <div class="col-sm-6">
+                    <input type="tel" class="form-control" id="landPhone" ng-model="landPhone">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="mobilePhone" class="col-sm-4 control-label">Mobile Phone :</label>
+                <div class="col-sm-6">
+                    <input type="tel" class="form-control" id="mobilePhone" ng-model="mobilePhone">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="inputMap" class="col-sm-4 control-label">Default Map:</label>
+                <div class="col-sm-6">
+                    <select size="1" class="form-control" id="inputMap" ng-model="inputMap">
+                            <option selected value="levelM0">None</option>
+                            <option value="levelM2">Some map 2</option>
+                            <option value="levelM3">Some map 3</option>
+                            <option value="levelM4">Some map 4</option>
+                        </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="location" class="col-sm-4 control-label">Location(Latitude/Longitude)</label>
+                <div class="col-sm-6">
+                    <input type="number" min="-90" max="90" placeholder="0" class="form-control location" id="locationLatitude" ng-model="locationLatitude">
+                    <input type="number" min="-180" max="180" placeholder="0" class="form-control location" id="locationLongitude" ng-model="locationLongitude">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-4 addButtonLast">
+                    <button type="button" class="btn btn-default active buttons addButton" id="addUser">Add</button>
+                </div>
+            </div>
+
+        </form>
+        <div class="col-sm-4 test">
+
+            <p>User Account: <span ng-bind="inputUserAccount"></span></p>
+            <p>Account Name: <span ng-bind="inputName"></span></p>
+            <p>User Type: <span ng-bind="inputUserType"></span></p>
+            <p>User Profile: <span ng-bind="inputProfile"></span></p>
+            <p>User Level: <span ng-bind="inputLevel"></span></p>
+            <p>First Name: <span ng-bind="firstName"></span></p>
+            <p>Last Name: <span ng-bind="lastName"></span></p>
+            <p>Password: <span ng-bind="inputPassword"></span></p>
+            <p>Confirm Password: <span ng-bind="inputConfirm"></span></p>
+            <p>Email: <span ng-bind="inputEmail"></span></p>
+            <p>Land Phone: <span ng-bind="landPhone"></span></p>
+            <p>Mobile Phone: <span ng-bind="mobilePhone"></span></p>
+            <p>Map: <span ng-bind="inputMap"></span></p>
+            <p>Latitude: <span ng-bind="locationLatitude"></span></p>
+            <p>Longitude: <span ng-bind="locationLongitude"></span></p>
+
+            There are <span ng-bind="users.length"></span> users
+            <div>There are {{users.length}} users</div>
+        </div>
+
+
+
+        <!-- End container-fluid-->
+    </div>
+    <script src="script_1.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+</body>
+
+</html>

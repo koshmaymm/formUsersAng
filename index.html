@@ -13,7 +13,7 @@
 <body ng-controller="defaultCtrl">
     <div class="container-fluid">
 
-        <form name="myForm" class="form-horizontal col-sm-offset-1 col-sm-6" id="myForm">
+        <form name="myForm" novalidate class="form-horizontal col-sm-offset-1 col-sm-6" id="myForm">
 
             <div class="form-group">
                 <label class="col-sm-4 control-label">Add\Edit a User Account:</label>
@@ -22,8 +22,8 @@
             <div class="form-group">
                 <label for="inputUserAccount" class="col-sm-4 control-label">Account:</label>
                 <div class="col-sm-6">
-                    <select size="1" class="form-control" id="inputUserAccount" ng-model="inputUserAccount">
-                            <option selected value="Add New">Add New</option>
+                    <select size="1" class="form-control" ng-model="inputUserAccount">
+                            <option value="Add New">Add New</option>
                             <option value="Admin">Admin</option>
                             <option value="First User">First User</option>
                             <option value="Second User">Second User</option>
@@ -36,7 +36,7 @@
                 <label for="inputName" class="col-sm-4 control-label requireFields">Name * :</label>
                 <div class="col-sm-6">
                     <input type="text" class="form-control" id="inputName" ng-model="inputName">
-                    <h5>You don't filled name</h5>
+                    <h5 ng-hide="noName">You don't filled name</h5>
                 </div>
             </div>
 
@@ -51,7 +51,7 @@
                         </select>
                 </div>
             </div>
-
+            <!--
             <div class="form-group">
                 <label for="inputProfile" class="col-sm-4 control-label">Profile:</label>
                 <div class="col-sm-6">
@@ -114,7 +114,7 @@
                     <input type="text" class="form-control" id="inputEmail" ng-model="inputEmail">
                 </div>
                 <div class="col-sm-1">
-                    <button type="button" class="btn btn-default active buttons" id="sendEmail">Send</button>
+                    <button type="button" class="btn btn-default  buttons" id="sendEmail">Send</button>
                 </div>
             </div>
 
@@ -151,10 +151,10 @@
                     <input type="number" min="-180" max="180" placeholder="0" class="form-control location" id="locationLongitude" ng-model="locationLongitude">
                 </div>
             </div>
-
+-->
             <div class="form-group">
                 <div class="col-sm-4 addButtonLast">
-                    <button type="button" class="btn btn-default active buttons addButton" id="addUser">Add</button>
+                    <button type="button" class="btn btn-default buttons addButton" id="addUser" ng-click="showName()">Add</button>
                 </div>
             </div>
 

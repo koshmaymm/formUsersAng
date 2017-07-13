@@ -7,41 +7,28 @@ angular.module("exampleApp", [])
         }];
 
         $scope.noName = true;
-        let test = $scope.inputUserAccount;
+
+        $scope.test1 = "$scope.inputUserAccount"; // ???
 
         $scope.newUser = {
-
-            firstParam: $scope.test,
-            secondParam: document.getElementById("inputUserAccount").value
-                /*name
-                type: document.getElementById("inputUserAccount").value,
-                inputProfile,
-                inputLevel,
-                firstName,
-                lastName,
-                inputPassword,
-                inputEmail,
-                landPhone,
-                mobilePhone,
-                inputMap,
-                latitude,
-                longitude*/
+            name: $scope.inputUserAccount,
+            test11: "some test"
         };
 
-        $scope.showName = function() {
 
+        $scope.showName = function(a) {
             if ($scope.noName == true) {
                 $scope.noName = false;
             } else {
                 $scope.noName = true;
             }
-            console.log($scope.noName);
             $scope.tryAddNewUser();
         }
 
         $scope.tryAddNewUser = function() {
-            console.log($scope.newUser);
-            console.log(test);
+            console.log($scope.users[0].name);
+            console.log($scope.newUser.name);
+            console.log($scope.newUser.test11);
         }
 
 

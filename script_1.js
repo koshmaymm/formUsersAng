@@ -7,21 +7,25 @@ angular.module("exampleApp", [])
         }];
 
         $scope.noName = true;
+        let test = $scope.inputUserAccount;
 
-        $scope.newUser = function() {
-            $scope.name = $scope.inputUserAccount,
-                $scope.type = $scope.inputName,
-                $scope.inputProfile,
-                $scope.inputLevel,
-                $scope.firstName,
-                $scope.lastName,
-                $scope.inputPassword,
-                $scope.inputEmail,
-                $scope.landPhone,
-                $scope.mobilePhone,
-                $scope.inputMap,
-                $scope.latitude,
-                $scope.longitude;
+        $scope.newUser = {
+
+            firstParam: $scope.test,
+            secondParam: document.getElementById("inputUserAccount").value
+                /*name
+                type: document.getElementById("inputUserAccount").value,
+                inputProfile,
+                inputLevel,
+                firstName,
+                lastName,
+                inputPassword,
+                inputEmail,
+                landPhone,
+                mobilePhone,
+                inputMap,
+                latitude,
+                longitude*/
         };
 
         $scope.showName = function() {
@@ -36,6 +40,9 @@ angular.module("exampleApp", [])
         }
 
         $scope.tryAddNewUser = function() {
-            console.log("<<<=====>>>");
+            console.log($scope.newUser);
+            console.log(test);
         }
+
+
     });

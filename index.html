@@ -3,7 +3,7 @@
 
 <head>
     <title>Title</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.js"></script>
+    <script src="node_modules/angular/angular.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="style.css">
@@ -22,12 +22,8 @@
             <div class="form-group">
                 <label for="inputUserAccount" class="col-sm-4 control-label">Account:</label>
                 <div class="col-sm-6">
-                    <select size="1" name="username" class="form-control" ng-model="inputUserAccount" id="inputUserAccount">
-                            <option value="Add New">Add New</option>
-                            <option value="Admin">Admin</option>
-                            <option value="First User">First User</option>
-                            <option value="Second User">Second User</option>
-                            <option value="Third User">Third User</option>  
+                    <select size="1" ng-options="account.value as account.text for account in accounts" name="username" class="form-control" ng-model="newUser.account" id="inputUserAccount">
+                            
                         </select>
                 </div>
             </div>
@@ -35,7 +31,7 @@
             <div class="form-group">
                 <label for="inputName" class="col-sm-4 control-label requireFields">Name * :</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" ng-model="inputName">
+                    <input type="text" class="form-control" ng-model="newUser.name">
                     <h5 ng-hide="noName">You don't filled name</h5>
                 </div>
             </div>
@@ -43,7 +39,7 @@
             <div class="form-group">
                 <label for="inputUserType" class="col-sm-4 control-label">User Type:</label>
                 <div class="col-sm-6">
-                    <select size="1" class="form-control" ng-model="inputUserType">
+                    <select size="1" class="form-control" ng-model="newUser.type">
                             <option value="type1">IOT(C&C)</option>
                             <option value="type2">Some type 2</option>
                             <option value="type3">Some type 3</option>
@@ -51,7 +47,7 @@
                         </select>
                 </div>
             </div>
-            <!--
+
             <div class="form-group">
                 <label for="inputProfile" class="col-sm-4 control-label">Profile:</label>
                 <div class="col-sm-6">
@@ -147,14 +143,14 @@
             <div class="form-group">
                 <label for="location" class="col-sm-4 control-label">Location(Latitude/Longitude)</label>
                 <div class="col-sm-6">
-                    <input type="number" min="-90" max="90" placeholder="0" class="form-control location" id="locationLatitude" ng-model="locationLatitude">
-                    <input type="number" min="-180" max="180" placeholder="0" class="form-control location" id="locationLongitude" ng-model="locationLongitude">
+                    <input type="text" class="form-control location" id="locationLatitude" ng-model="newUser.latitude">
+                    <input type="text" class="form-control location" id="locationLongitude" ng-model="locationLongitude">
                 </div>
             </div>
--->
+
             <div class="form-group">
                 <div class="col-sm-4 addButtonLast">
-                    <button type="button" class="btn btn-default buttons addButton" id="addUser" ng-click="showName(this)">Add</button>
+                    <button type="button" class="btn btn-default buttons addButton" id="addUser" ng-click="showName()">Add</button>
                 </div>
             </div>
 
@@ -163,7 +159,7 @@
 
             <p>User Account: <span>{{inputUserAccount | uppercase }}</span></p>
             <p>Account Name: <span ng-bind="inputName | uppercase"></span></p>
-            <p>User Type: <span ng-bind="inputUserType"></span></p>
+            <p>User Type: <span ng-bind="newUser.type"></span></p>
             <p>User Profile: <span ng-bind="inputProfile"></span></p>
             <p>User Level: <span ng-bind="inputLevel"></span></p>
             <p>First Name: <span ng-bind="firstName"></span></p>
@@ -179,6 +175,8 @@
 
             There are <span ng-bind="users.length"></span> users
             <div>There are {{users.length}} users</div>
+            <p hightlight color="red"> AAA </p>
+            <p hightlight color="green"> AAA </p>
         </div>
 
 

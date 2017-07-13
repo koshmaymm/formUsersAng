@@ -22,7 +22,7 @@
             <div class="form-group">
                 <label for="inputUserAccount" class="col-sm-4 control-label">Account:</label>
                 <div class="col-sm-6">
-                    <select size="1" class="form-control" ng-model="inputUserAccount" id="inputUserAccount">
+                    <select size="1" name="username" class="form-control" ng-model="inputUserAccount" id="inputUserAccount">
                             <option value="Add New">Add New</option>
                             <option value="Admin">Admin</option>
                             <option value="First User">First User</option>
@@ -154,15 +154,15 @@
 -->
             <div class="form-group">
                 <div class="col-sm-4 addButtonLast">
-                    <button type="button" class="btn btn-default buttons addButton" id="addUser" ng-click="showName()">Add</button>
+                    <button type="button" class="btn btn-default buttons addButton" id="addUser" ng-click="showName(this)">Add</button>
                 </div>
             </div>
 
         </form>
         <div class="col-sm-4 test">
 
-            <p>User Account: <span ng-bind="inputUserAccount"></span></p>
-            <p>Account Name: <span ng-bind="inputName"></span></p>
+            <p>User Account: <span>{{inputUserAccount | uppercase }}</span></p>
+            <p>Account Name: <span ng-bind="inputName | uppercase"></span></p>
             <p>User Type: <span ng-bind="inputUserType"></span></p>
             <p>User Profile: <span ng-bind="inputProfile"></span></p>
             <p>User Level: <span ng-bind="inputLevel"></span></p>

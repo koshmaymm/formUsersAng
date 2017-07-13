@@ -22,7 +22,7 @@
             <div class="form-group">
                 <label for="inputUserAccount" class="col-sm-4 control-label">Account:</label>
                 <div class="col-sm-6">
-                    <select size="1" class="form-control" ng-model="inputUserAccount">
+                    <select size="1" class="form-control" ng-model="inputUserAccount" id="inputUserAccount">
                             <option value="Add New">Add New</option>
                             <option value="Admin">Admin</option>
                             <option value="First User">First User</option>
@@ -35,7 +35,7 @@
             <div class="form-group">
                 <label for="inputName" class="col-sm-4 control-label requireFields">Name * :</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" id="inputName" ng-model="inputName">
+                    <input type="text" class="form-control" ng-model="inputName">
                     <h5 ng-hide="noName">You don't filled name</h5>
                 </div>
             </div>
@@ -43,8 +43,8 @@
             <div class="form-group">
                 <label for="inputUserType" class="col-sm-4 control-label">User Type:</label>
                 <div class="col-sm-6">
-                    <select size="1" class="form-control" id="inputUserType" ng-model="inputUserType">
-                            <option value="type1" ng-selected>IOT(C&C)</option>
+                    <select size="1" class="form-control" ng-model="inputUserType">
+                            <option value="type1">IOT(C&C)</option>
                             <option value="type2">Some type 2</option>
                             <option value="type3">Some type 3</option>
                             <option value="type4">Some type 4</option>

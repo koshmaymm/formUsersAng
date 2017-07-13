@@ -32,6 +32,7 @@ angular.module("exampleApp", [])
                 $scope.noName = true;
             }
             console.log($scope.noName);
+            $scope.tryAddNewUser();
         }
 
         $scope.tryAddNewUser = function() {

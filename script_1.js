@@ -1,35 +1,64 @@
 angular.module("exampleApp", [])
-    .controller("defaultCtrl", function($scope, $filter) {
+    .constant("ACCOUNTS", [{
+            id: 1,
+            value: 12,
+            text: "Add New"
+        },
+        {
+            id: 2,
+            value: 23,
+            text: "Admin"
+        }
+    ])
+    .service("navigatorService", function($window) {
+        var latitude;
+        var longitude;
+        $window.navigator.geolocation.getCurrentPosition(function(position) {
+            latitude = position.coords.latitude;
+            longitude = position.coords.longitude;
+        })
+        this.getLatitude = function() {
+            return latitude;
+        }
+        this.getLongitude = function() {
+            return longitude;
+        }
+    })
+    .directive("hightlight", function() {
+        return {
+            restrict: 'A',
+            link: function(scope, element) {
+                console.log(scope);
+                element.on("mouseover", function(event) {
+                    angular.element(element).css({ color: scope.color })
 
-        $scope.users = [{
-            name: "Table",
-            price: 44.10
-        }];
+                })
+                element.on("mouseout", function(event) {
+                    angular.element(element).css({ color: "black" })
+                })
+            },
+            scope: { color: "@" }
+        };
+    })
+    .controller("defaultCtrl", ["$scope", "$filter", "ACCOUNTS", "navigatorService", "$timeout", function($scope, $filter, ACCOUNTS, navigatorService, $timeout) {
+
+        $scope.newUser = {};
+        $timeout(function() {
+            $scope.newUser.latitude = navigatorService.getLatitude();
+        }, 500)
+        $scope.accounts = ACCOUNTS;
+        $scope.newUser.account = $scope.accounts[0].value;
 
         $scope.noName = true;
 
-        $scope.test1 = "$scope.inputUserAccount"; // ???
-
-        $scope.newUser = {
-            name: $scope.inputUserAccount,
-            test11: "some test"
-        };
-
-
         $scope.showName = function(a) {
-            if ($scope.noName == true) {
-                $scope.noName = false;
-            } else {
-                $scope.noName = true;
-            }
+            $scope.noName = !$scope.noName;
+
             $scope.tryAddNewUser();
         }
 
         $scope.tryAddNewUser = function() {
-            console.log($scope.users[0].name);
-            console.log($scope.newUser.name);
-            console.log($scope.newUser.test11);
+            console.log($scope.newUser);
         }
 
-
-    });
+    }]);

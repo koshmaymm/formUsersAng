@@ -1,0 +1,23 @@
+{
+  "name": "2017.07.06",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script_1.js",
+  "scripts": {
+    "start": "live-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/koshmaymm/formUsersAng.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/koshmaymm/formUsersAng/issues"
+  },
+  "homepage": "https://github.com/koshmaymm/formUsersAng#readme",
+  "dependencies": {
+    "angular": "^1.6.5",
+    "live-server": "^1.2.0"
+  }
+}

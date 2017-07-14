@@ -4,6 +4,7 @@
 <head>
     <title>Title</title>
     <script src="node_modules/angular/angular.js"></script>
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="style.css">
@@ -22,7 +23,7 @@
             <div class="form-group">
                 <label for="inputUserAccount" class="col-sm-4 control-label">Account:</label>
                 <div class="col-sm-6">
-                    <select ng-click="checkUserType()" size="1" ng-options="account.value as account.text for account in accounts" name="username" class="form-control" ng-model="newUser.account" id="inputUserAccount">   
+                    <select ng-click="checkUserType()" size="1" strongborder border="" ng-options="account.value as account.text for account in accounts" name="username" class="form-control" ng-model="newUser.account" id="inputUserAccount">   
                     
                     </select>
                 </div>
@@ -31,7 +32,7 @@
             <div class="form-group" ng-show="presentUser">
                 <label for="inputName" class="col-sm-4 control-label requireFields">Name * :</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" ng-model="newUser.name">
+                    <input type="text" class="form-control" strongborder border="" ng-model="newUser.name">
                     <h5 ng-hide="noName">You don't filled name</h5>
                 </div>
             </div>
@@ -39,7 +40,7 @@
             <div class="form-group" ng-show="presentUser">
                 <label for="inputUserType" class="col-sm-4 control-label">User Type:</label>
                 <div class="col-sm-6">
-                    <select ng-options="type.value as type.text for type in types" size="1" class="form-control" ng-model="newUser.type">
+                    <select ng-options="type.value as type.text for type in types" size="1" class="form-control" strongborder border="" ng-model="newUser.type">
                             
                     </select>
                 </div>
@@ -48,7 +49,7 @@
             <div class="form-group" ng-show="presentUser">
                 <label for="inputProfile" class="col-sm-4 control-label">Profile:</label>
                 <div class="col-sm-6">
-                    <select ng-options="profile.value as profile.text for profile in profiles" size="1" class="form-control" ng-model="newUser.profile">
+                    <select ng-options="profile.value as profile.text for profile in profiles" size="1" class="form-control" strongborder border="" ng-model="newUser.profile">
                             
                     </select>
                 </div>
@@ -57,7 +58,7 @@
             <div class="form-group" ng-show="presentUser">
                 <label for="inputLevel" class="col-sm-4 control-label">Level:</label>
                 <div class="col-sm-6">
-                    <select ng-options="level.value as level.text for level in levels" size="1" class="form-control" id="inputLevel" ng-model="newUser.level">
+                    <select ng-options="level.value as level.text for level in levels" size="1" class="form-control" strongborder border="" ng-model="newUser.level">
                             
                     </select>
                 </div>
@@ -66,21 +67,21 @@
             <div class="form-group" ng-show="presentUser">
                 <label for="firstName" class="col-sm-4 control-label">First Name :</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" id="firstName" ng-model="firstName">
+                    <input type="text" class="form-control" strongborder border="" ng-model="newUser.firstName">
                 </div>
             </div>
 
             <div class="form-group" ng-show="presentUser">
                 <label for="lastName" class="col-sm-4 control-label">Last Name :</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" id="lastName" ng-model="lastName">
+                    <input type="text" class="form-control" strongborder border="" ng-model="newUser.lastName">
                 </div>
             </div>
 
             <div class="form-group">
                 <label for="inputPassword" class="col-sm-4 control-label requireFields">Password * :</label>
                 <div class="col-sm-6">
-                    <input type="password" class="form-control" id="inputPassword" ng-model="inputPassword">
+                    <input type="password" class="form-control" strongborder border="" ng-model="newUser.password">
                     <h5>You don't filled password</h5>
                 </div>
             </div>
@@ -88,7 +89,7 @@
             <div class="form-group">
                 <label for="inputConfirm" class="col-sm-4 control-label requireFields">Confirm * :</label>
                 <div class="col-sm-6">
-                    <input type="password" class="form-control" id="inputConfirm" ng-model="inputConfirm">
+                    <input type="password" class="form-control" strongborder border="" ng-model="newUser.confirmPassword">
                     <h5 class="inputConfirm">You don't filled password again</h5>
                     <h5 class="inputConfirm">Passwords are not identical</h5>
                 </div>
@@ -97,7 +98,7 @@
             <div class="form-group" ng-show="presentUser">
                 <label for="inputEmail" class="col-sm-4 control-label">Email :</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" id="inputEmail" ng-model="inputEmail">
+                    <input type="text" class="form-control" strongborder border="" ng-model="newUser.email">
                 </div>
                 <div class="col-sm-1">
                     <button type="button" class="btn btn-default  buttons" id="sendEmail">Send</button>
@@ -107,40 +108,37 @@
             <div class="form-group" ng-show="presentUser">
                 <label for="landPhone" class="col-sm-4 control-label">Land Phone :</label>
                 <div class="col-sm-6">
-                    <input type="tel" class="form-control" id="landPhone" ng-model="landPhone">
+                    <input type="tel" class="form-control" strongborder border="" ng-model="newUser.landPhone">
                 </div>
             </div>
 
             <div class="form-group" ng-show="presentUser">
                 <label for="mobilePhone" class="col-sm-4 control-label">Mobile Phone :</label>
                 <div class="col-sm-6">
-                    <input type="tel" class="form-control" id="mobilePhone" ng-model="mobilePhone">
+                    <input type="tel" class="form-control" strongborder border="" ng-model="newUser.mobilePhone">
                 </div>
             </div>
 
             <div class="form-group" ng-show="presentUser">
                 <label for="inputMap" class="col-sm-4 control-label">Default Map:</label>
                 <div class="col-sm-6">
-                    <select size="1" class="form-control" id="inputMap" ng-model="inputMap">
-                            <option selected value="levelM0">None</option>
-                            <option value="levelM2">Some map 2</option>
-                            <option value="levelM3">Some map 3</option>
-                            <option value="levelM4">Some map 4</option>
-                        </select>
+                    <select ng-options="map.value as map.text for map in maps" size="1" class="form-control" ng-model="newUser.map" strongborder border="">
+                            
+                    </select>
                 </div>
             </div>
 
             <div class="form-group" ng-show="presentUser">
                 <label for="location" class="col-sm-4 control-label">Location(Latitude/Longitude)</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control location" id="locationLatitude" ng-model="newUser.latitude">
-                    <input type="text" class="form-control location" id="locationLongitude" ng-model="newUser.longitude">
+                    <input strongborder border="" type="text" class="form-control location" ng-model="newUser.latitude">
+                    <input strongborder border="" type="text" class="form-control location longitude" ng-model="newUser.longitude">
                 </div>
             </div>
 
             <div class="form-group">
                 <div class="col-sm-4 addButtonLast">
-                    <button type="button" class="btn btn-default buttons addButton" id="addUser" ng-click="showName()">Add</button>
+                    <button type="button" class="btn btn-default buttons addButton" ng-click="showName()">Add</button>
                 </div>
             </div>
 
@@ -148,7 +146,7 @@
         <div class="col-sm-4 test">
 
             <p>User Account: <span>{{newUser.account | uppercase }}</span></p>
-            <p>Account Name: <span ng-bind="newUser.name | uppercase"></span></p>
+            <p strongborder border="">Account Name: <span ng-bind="newUser.name | uppercase"></span></p>
             <p>User Type: <span ng-bind="newUser.type"></span></p>
             <p>User Profile: <span ng-bind="inputProfile"></span></p>
             <p>User Level: <span ng-bind="inputLevel"></span></p>
@@ -160,11 +158,11 @@
             <p>Land Phone: <span ng-bind="landPhone"></span></p>
             <p>Mobile Phone: <span ng-bind="mobilePhone"></span></p>
             <p>Map: <span ng-bind="inputMap"></span></p>
-            <p>Latitude: <span ng-bind="locationLatitude"></span></p>
-            <p>Longitude: <span ng-bind="locationLongitude"></span></p>
+            <p hightlight color="magenta">Latitude: <span ng-bind="locationLatitude"></span></p>
+            <p hightlight color="yellow">Longitude: <span ng-bind="locationLongitude"></span></p>
 
-            There are <span ng-bind="users.length"></span> users
-            <div>There are {{users.length}} users</div>
+            <p strongfont>There are <span ng-bind="users.length"></span> users</p>
+            <p strongfont>There are {{users.length}} users</p>
             <p hightlight color="red"> AAA </p>
             <p hightlight color="green"> AAA </p>
         </div>
@@ -174,6 +172,7 @@
         <!-- End container-fluid-->
     </div>
     <script src="script_1.js"></script>
+    <script src="constants.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
 </body>

@@ -6,7 +6,7 @@ angular.module("exampleApp", [])
         },
         {
             id: 2,
-            value: "Admin",
+            value: "admin",
             text: "Admin"
         },
         {
@@ -88,6 +88,27 @@ angular.module("exampleApp", [])
             text: "FIFTH"
         }
     ])
+    .constant("MAPS", [{
+            id: 22,
+            value: "roadmap",
+            text: "ROADMAP"
+        },
+        {
+            id: 23,
+            value: "satellite",
+            text: "SATELLITE"
+        },
+        {
+            id: 24,
+            value: "hybrid",
+            text: "HYBRID"
+        },
+        {
+            id: 25,
+            value: "terrain",
+            text: "TERRAIN"
+        }
+    ])
     .service("navigatorService", function($window) {
         var latitude;
         var longitude;
@@ -118,7 +139,39 @@ angular.module("exampleApp", [])
             scope: { color: "@" }
         };
     })
-    .controller("defaultCtrl", ["$scope", "$filter", "ACCOUNTS", "TYPES", "PROFILES", "LEVELS", "navigatorService", "$timeout", function($scope, $filter, ACCOUNTS, TYPES, PROFILES, LEVELS, navigatorService, $timeout) {
+    .directive("strongfont", function() {
+        return {
+            restrict: 'A',
+            link: function(scope, element) {
+
+                element.on("mouseover", function(event) {
+                    angular.element(element).css({ fontWeight: "bold" })
+
+                })
+                element.on("mouseout", function(event) {
+                    angular.element(element).css({ fontWeight: "normal" })
+                })
+            },
+            scope: { fontWeight: "@" }
+        };
+    })
+    .directive("strongborder", function() {
+        return {
+            restrict: 'A',
+            link: function(scope, element) {
+
+                element.on("mouseover", function(event) {
+                    angular.element(element).css({ border: "3px outset gold" })
+
+                })
+                element.on("mouseout", function(event) {
+                    angular.element(element).css({ border: scope.border })
+                })
+            },
+            scope: { border: "@" }
+        };
+    })
+    .controller("defaultCtrl", ["$scope", "$filter", "ACCOUNTS", "TYPES", "PROFILES", "LEVELS", "MAPS", "navigatorService", "$timeout", function($scope, $filter, ACCOUNTS, TYPES, PROFILES, LEVELS, MAPS, navigatorService, $timeout) {
 
         $scope.newUser = {};
         $timeout(function() {
@@ -130,24 +183,28 @@ angular.module("exampleApp", [])
         $scope.types = TYPES;
         $scope.profiles = PROFILES;
         $scope.levels = LEVELS;
+        $scope.maps = MAPS;
 
         $scope.newUser.account = $scope.accounts[0].value;
         $scope.newUser.type = $scope.types[0].value;
         $scope.newUser.profile = $scope.profiles[0].value;
         $scope.newUser.level = $scope.levels[0].value;
+        $scope.newUser.map = $scope.maps[0].value;
 
         $scope.noName = true;
         $scope.presentUser = true;
 
         $scope.showName = function(a) {
             $scope.noName = !$scope.noName;
-            $scope.presentUser = !$scope.presentUser;
+
             $scope.tryAddNewUser();
         }
 
         $scope.tryAddNewUser = function() {
             if ($scope.newUser.account == "New User") {
                 console.log($scope.accounts[0].text);
+            } else {
+                console.log($scope.newUser.account);
             }
         }
         $scope.checkUserType = function() {

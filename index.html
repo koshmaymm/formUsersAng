@@ -22,13 +22,13 @@
             <div class="form-group">
                 <label for="inputUserAccount" class="col-sm-4 control-label">Account:</label>
                 <div class="col-sm-6">
-                    <select size="1" ng-options="account.value as account.text for account in accounts" name="username" class="form-control" ng-model="newUser.account" id="inputUserAccount">   
+                    <select ng-click="checkUserType()" size="1" ng-options="account.value as account.text for account in accounts" name="username" class="form-control" ng-model="newUser.account" id="inputUserAccount">   
                     
                     </select>
                 </div>
             </div>
 
-            <div class="form-group">
+            <div class="form-group" ng-show="presentUser">
                 <label for="inputName" class="col-sm-4 control-label requireFields">Name * :</label>
                 <div class="col-sm-6">
                     <input type="text" class="form-control" ng-model="newUser.name">
@@ -36,7 +36,7 @@
                 </div>
             </div>
 
-            <div class="form-group">
+            <div class="form-group" ng-show="presentUser">
                 <label for="inputUserType" class="col-sm-4 control-label">User Type:</label>
                 <div class="col-sm-6">
                     <select ng-options="type.value as type.text for type in types" size="1" class="form-control" ng-model="newUser.type">
@@ -45,39 +45,32 @@
                 </div>
             </div>
 
-            <div class="form-group">
+            <div class="form-group" ng-show="presentUser">
                 <label for="inputProfile" class="col-sm-4 control-label">Profile:</label>
                 <div class="col-sm-6">
-                    <select size="1" class="form-control" id="inputProfile" ng-model="inputProfile">
-                            <option ng-selected value="Client">Client</option>
-                            <option value="Admin">Admin</option>
-                            <option value="type22">Some type 22</option>
-                            <option value="type33">Some type 33</option>
-                            <option value="type43">Some type 44</option>
-                        </select>
+                    <select ng-options="profile.value as profile.text for profile in profiles" size="1" class="form-control" ng-model="newUser.profile">
+                            
+                    </select>
                 </div>
             </div>
 
-            <div class="form-group">
+            <div class="form-group" ng-show="presentUser">
                 <label for="inputLevel" class="col-sm-4 control-label">Level:</label>
                 <div class="col-sm-6">
-                    <select size="1" class="form-control" id="inputLevel" ng-model="inputLevel">
-                            <option selected value="1">1</option>
-                            <option value="level2">2</option>
-                            <option value="level3">3</option>
-                            <option value="level4">4</option>
-                        </select>
+                    <select ng-options="level.value as level.text for level in levels" size="1" class="form-control" id="inputLevel" ng-model="newUser.level">
+                            
+                    </select>
                 </div>
             </div>
 
-            <div class="form-group">
+            <div class="form-group" ng-show="presentUser">
                 <label for="firstName" class="col-sm-4 control-label">First Name :</label>
                 <div class="col-sm-6">
                     <input type="text" class="form-control" id="firstName" ng-model="firstName">
                 </div>
             </div>
 
-            <div class="form-group">
+            <div class="form-group" ng-show="presentUser">
                 <label for="lastName" class="col-sm-4 control-label">Last Name :</label>
                 <div class="col-sm-6">
                     <input type="text" class="form-control" id="lastName" ng-model="lastName">
@@ -101,7 +94,7 @@
                 </div>
             </div>
 
-            <div class="form-group">
+            <div class="form-group" ng-show="presentUser">
                 <label for="inputEmail" class="col-sm-4 control-label">Email :</label>
                 <div class="col-sm-6">
                     <input type="text" class="form-control" id="inputEmail" ng-model="inputEmail">
@@ -111,21 +104,21 @@
                 </div>
             </div>
 
-            <div class="form-group">
+            <div class="form-group" ng-show="presentUser">
                 <label for="landPhone" class="col-sm-4 control-label">Land Phone :</label>
                 <div class="col-sm-6">
                     <input type="tel" class="form-control" id="landPhone" ng-model="landPhone">
                 </div>
             </div>
 
-            <div class="form-group">
+            <div class="form-group" ng-show="presentUser">
                 <label for="mobilePhone" class="col-sm-4 control-label">Mobile Phone :</label>
                 <div class="col-sm-6">
                     <input type="tel" class="form-control" id="mobilePhone" ng-model="mobilePhone">
                 </div>
             </div>
 
-            <div class="form-group">
+            <div class="form-group" ng-show="presentUser">
                 <label for="inputMap" class="col-sm-4 control-label">Default Map:</label>
                 <div class="col-sm-6">
                     <select size="1" class="form-control" id="inputMap" ng-model="inputMap">
@@ -137,7 +130,7 @@
                 </div>
             </div>
 
-            <div class="form-group">
+            <div class="form-group" ng-show="presentUser">
                 <label for="location" class="col-sm-4 control-label">Location(Latitude/Longitude)</label>
                 <div class="col-sm-6">
                     <input type="text" class="form-control location" id="locationLatitude" ng-model="newUser.latitude">

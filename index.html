@@ -22,9 +22,9 @@
             <div class="form-group">
                 <label for="inputUserAccount" class="col-sm-4 control-label">Account:</label>
                 <div class="col-sm-6">
-                    <select size="1" ng-options="account.value as account.text for account in accounts" name="username" class="form-control" ng-model="newUser.account" id="inputUserAccount">
-                            
-                        </select>
+                    <select size="1" ng-options="account.value as account.text for account in accounts" name="username" class="form-control" ng-model="newUser.account" id="inputUserAccount">   
+                    
+                    </select>
                 </div>
             </div>
 
@@ -39,12 +39,9 @@
             <div class="form-group">
                 <label for="inputUserType" class="col-sm-4 control-label">User Type:</label>
                 <div class="col-sm-6">
-                    <select size="1" class="form-control" ng-model="newUser.type">
-                            <option value="type1">IOT(C&C)</option>
-                            <option value="type2">Some type 2</option>
-                            <option value="type3">Some type 3</option>
-                            <option value="type4">Some type 4</option>
-                        </select>
+                    <select ng-options="type.value as type.text for type in types" size="1" class="form-control" ng-model="newUser.type">
+                            
+                    </select>
                 </div>
             </div>
 
@@ -144,7 +141,7 @@
                 <label for="location" class="col-sm-4 control-label">Location(Latitude/Longitude)</label>
                 <div class="col-sm-6">
                     <input type="text" class="form-control location" id="locationLatitude" ng-model="newUser.latitude">
-                    <input type="text" class="form-control location" id="locationLongitude" ng-model="locationLongitude">
+                    <input type="text" class="form-control location" id="locationLongitude" ng-model="newUser.longitude">
                 </div>
             </div>
 
@@ -157,8 +154,8 @@
         </form>
         <div class="col-sm-4 test">
 
-            <p>User Account: <span>{{inputUserAccount | uppercase }}</span></p>
-            <p>Account Name: <span ng-bind="inputName | uppercase"></span></p>
+            <p>User Account: <span>{{newUser.account | uppercase }}</span></p>
+            <p>Account Name: <span ng-bind="newUser.name | uppercase"></span></p>
             <p>User Type: <span ng-bind="newUser.type"></span></p>
             <p>User Profile: <span ng-bind="inputProfile"></span></p>
             <p>User Level: <span ng-bind="inputLevel"></span></p>

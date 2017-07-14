@@ -46,6 +46,48 @@ angular.module("exampleApp", [])
             text: "UI/UX DESIGNER"
         }
     ])
+    .constant("PROFILES", [{
+            id: 111,
+            value: "junior",
+            text: "JUNOIR"
+        },
+        {
+            id: 222,
+            value: "middle",
+            text: "MIDDLE"
+        },
+        {
+            id: 333,
+            value: "senior",
+            text: "SENIOR"
+        }
+    ])
+    .constant("LEVELS", [{
+            id: 1111,
+            value: "first",
+            text: "FIRST"
+        },
+        {
+            id: 2222,
+            value: "second",
+            text: "SECOND"
+        },
+        {
+            id: 3333,
+            value: "third",
+            text: "THIRD"
+        },
+        {
+            id: 4444,
+            value: "fourth",
+            text: "FOURTH"
+        },
+        {
+            id: 4444,
+            value: "fifth",
+            text: "FIFTH"
+        }
+    ])
     .service("navigatorService", function($window) {
         var latitude;
         var longitude;
@@ -76,7 +118,7 @@ angular.module("exampleApp", [])
             scope: { color: "@" }
         };
     })
-    .controller("defaultCtrl", ["$scope", "$filter", "ACCOUNTS", "TYPES", "navigatorService", "$timeout", function($scope, $filter, ACCOUNTS, TYPES, navigatorService, $timeout) {
+    .controller("defaultCtrl", ["$scope", "$filter", "ACCOUNTS", "TYPES", "PROFILES", "LEVELS", "navigatorService", "$timeout", function($scope, $filter, ACCOUNTS, TYPES, PROFILES, LEVELS, navigatorService, $timeout) {
 
         $scope.newUser = {};
         $timeout(function() {
@@ -86,15 +128,20 @@ angular.module("exampleApp", [])
 
         $scope.accounts = ACCOUNTS;
         $scope.types = TYPES;
+        $scope.profiles = PROFILES;
+        $scope.levels = LEVELS;
 
         $scope.newUser.account = $scope.accounts[0].value;
         $scope.newUser.type = $scope.types[0].value;
+        $scope.newUser.profile = $scope.profiles[0].value;
+        $scope.newUser.level = $scope.levels[0].value;
 
         $scope.noName = true;
+        $scope.presentUser = true;
 
         $scope.showName = function(a) {
             $scope.noName = !$scope.noName;
-
+            $scope.presentUser = !$scope.presentUser;
             $scope.tryAddNewUser();
         }
 
@@ -102,6 +149,9 @@ angular.module("exampleApp", [])
             if ($scope.newUser.account == "New User") {
                 console.log($scope.accounts[0].text);
             }
+        }
+        $scope.checkUserType = function() {
+            $scope.newUser.account !== "New User" ? ($scope.presentUser = false) : ($scope.presentUser = true);
         }
 
     }]);

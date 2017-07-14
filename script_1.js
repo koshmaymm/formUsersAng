@@ -1,13 +1,49 @@
 angular.module("exampleApp", [])
     .constant("ACCOUNTS", [{
             id: 1,
-            value: 12,
+            value: "New User",
             text: "Add New"
         },
         {
             id: 2,
-            value: 23,
+            value: "Admin",
             text: "Admin"
+        },
+        {
+            id: 3,
+            value: "project manager",
+            text: "Project Manager"
+        },
+        {
+            id: 4,
+            value: "product manager",
+            text: "Product Manager"
+        },
+        {
+            id: 5,
+            value: "team leader",
+            text: "Team Leader"
+        }
+    ])
+    .constant("TYPES", [{
+            id: 11,
+            value: "administrator",
+            text: "ADMINISTRATOR"
+        },
+        {
+            id: 22,
+            value: "devops",
+            text: "DEVOPS"
+        },
+        {
+            id: 33,
+            value: "support specialist",
+            text: "SUPPORT SPECIALIST"
+        },
+        {
+            id: 44,
+            value: "ui/ux designer",
+            text: "UI/UX DESIGNER"
         }
     ])
     .service("navigatorService", function($window) {
@@ -28,7 +64,7 @@ angular.module("exampleApp", [])
         return {
             restrict: 'A',
             link: function(scope, element) {
-                console.log(scope);
+
                 element.on("mouseover", function(event) {
                     angular.element(element).css({ color: scope.color })
 
@@ -40,14 +76,19 @@ angular.module("exampleApp", [])
             scope: { color: "@" }
         };
     })
-    .controller("defaultCtrl", ["$scope", "$filter", "ACCOUNTS", "navigatorService", "$timeout", function($scope, $filter, ACCOUNTS, navigatorService, $timeout) {
+    .controller("defaultCtrl", ["$scope", "$filter", "ACCOUNTS", "TYPES", "navigatorService", "$timeout", function($scope, $filter, ACCOUNTS, TYPES, navigatorService, $timeout) {
 
         $scope.newUser = {};
         $timeout(function() {
             $scope.newUser.latitude = navigatorService.getLatitude();
+            $scope.newUser.longitude = navigatorService.getLongitude();
         }, 500)
+
         $scope.accounts = ACCOUNTS;
+        $scope.types = TYPES;
+
         $scope.newUser.account = $scope.accounts[0].value;
+        $scope.newUser.type = $scope.types[0].value;
 
         $scope.noName = true;
 
@@ -58,7 +99,9 @@ angular.module("exampleApp", [])
         }
 
         $scope.tryAddNewUser = function() {
-            console.log($scope.newUser);
+            if ($scope.newUser.account == "New User") {
+                console.log($scope.accounts[0].text);
+            }
         }
 
     }]);

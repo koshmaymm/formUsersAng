@@ -177,7 +177,7 @@ angular.module("exampleApp", [])
         $timeout(function() {
             $scope.newUser.latitude = navigatorService.getLatitude();
             $scope.newUser.longitude = navigatorService.getLongitude();
-        }, 500)
+        }, 1500)
 
         $scope.accounts = ACCOUNTS;
         $scope.types = TYPES;

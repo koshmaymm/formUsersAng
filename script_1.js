@@ -160,7 +160,7 @@ angular.module("exampleApp", [])
             restrict: 'A',
             link: function(scope, element) {
 
-                element.on("mouseover", function(event) {
+                element.on("mouseenter", function(event) {
                     angular.element(element).css({ border: "3px outset gold" })
 
                 })

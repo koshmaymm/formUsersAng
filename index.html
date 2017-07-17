@@ -128,7 +128,7 @@
                 </div>
             </div>
 
-            <div class="form-group" ng-show="presentUser">
+            <div class="form-group" ng-show="presentUser" ng-cloak>
                 <label for="location" class="col-sm-4 control-label">Location(Latitude/Longitude)</label>
                 <div class="col-sm-6">
                     <input strongborder border="" type="text" class="form-control location" ng-model="newUser.latitude">
@@ -148,18 +148,18 @@
             <p>User Account: <span>{{newUser.account | uppercase }}</span></p>
             <p strongborder border="">Account Name: <span ng-bind="newUser.name | uppercase"></span></p>
             <p>User Type: <span ng-bind="newUser.type"></span></p>
-            <p>User Profile: <span ng-bind="inputProfile"></span></p>
-            <p>User Level: <span ng-bind="inputLevel"></span></p>
-            <p>First Name: <span ng-bind="firstName"></span></p>
-            <p>Last Name: <span ng-bind="lastName"></span></p>
-            <p>Password: <span ng-bind="inputPassword"></span></p>
-            <p>Confirm Password: <span ng-bind="inputConfirm"></span></p>
-            <p>Email: <span ng-bind="inputEmail"></span></p>
-            <p>Land Phone: <span ng-bind="landPhone"></span></p>
-            <p>Mobile Phone: <span ng-bind="mobilePhone"></span></p>
-            <p>Map: <span ng-bind="inputMap"></span></p>
-            <p hightlight color="magenta">Latitude: <span ng-bind="locationLatitude"></span></p>
-            <p hightlight color="yellow">Longitude: <span ng-bind="locationLongitude"></span></p>
+            <p>User Profile: <span ng-bind="newUser.profile"></span></p>
+            <p>User Level: <span ng-bind="newUser.level"></span></p>
+            <p>First Name: <span ng-bind="newUser.firstName"></span></p>
+            <p>Last Name: <span ng-bind="newUser.lastName"></span></p>
+            <p>Password: <span ng-bind="newUser.password"></span></p>
+            <p>Confirm Password: <span ng-bind="newUser.confirmPassword"></span></p>
+            <p>Email: <span ng-bind="newUser.email"></span></p>
+            <p>Land Phone: <span ng-bind="newUser.landPhone"></span></p>
+            <p>Mobile Phone: <span ng-bind="newUser.mobilePhone"></span></p>
+            <p>Map: <span ng-bind="newUser.map"></span></p>
+            <p hightlight color="magenta">Latitude: <span ng-bind="newUser.latitude | number:2"></span></p>
+            <p hightlight color="yellow">Longitude: <span ng-bind="newUser.longitude | number:2"></span></p>
 
             <p strongfont>There are <span ng-bind="users.length"></span> users</p>
             <p strongfont>There are {{users.length}} users</p>

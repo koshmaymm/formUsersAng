@@ -206,7 +206,9 @@ angular.module("exampleApp", [])
             } else {
                 console.log($scope.newUser.account);
             }
+            console.log($scope.newUser.longitude);
         }
+
         $scope.checkUserType = function() {
             $scope.newUser.account !== "New User" ? ($scope.presentUser = false) : ($scope.presentUser = true);
         }

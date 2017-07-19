@@ -1,4 +1,5 @@
-/*.constant("ACCOUNTS", [{
+angular.module("exampleApp")
+    .constant("ACCOUNTS", [{
             id: 1,
             value: "New User",
             text: "Add New"
@@ -24,7 +25,7 @@
             text: "Team Leader"
         }
     ])
-.constant("TYPES", [{
+    .constant("TYPES", [{
             id: 11,
             value: "administrator",
             text: "ADMINISTRATOR"
@@ -61,59 +62,68 @@
             text: "SENIOR"
         }
     ])
-        .constant("LEVELS", [{
-                id: 1111,
-                value: "first",
-                text: "FIRST"
-            },
-            {
-                id: 2222,
-                value: "second",
-                text: "SECOND"
-            },
-            {
-                id: 3333,
-                value: "third",
-                text: "THIRD"
-            },
-            {
-                id: 4444,
-                value: "fourth",
-                text: "FOURTH"
-            },
-            {
-                id: 4444,
-                value: "fifth",
-                text: "FIFTH"
-            }
-        ])
-        .service("navigatorService", function($window) {
-            var latitude;
-            var longitude;
-            $window.navigator.geolocation.getCurrentPosition(function(position) {
-                latitude = position.coords.latitude;
-                longitude = position.coords.longitude;
-            })
-            this.getLatitude = function() {
-                return latitude;
-            }
-            this.getLongitude = function() {
-                return longitude;
-            }
-        })
-        .directive("hightlight", function() {
-            return {
-                restrict: 'A',
-                link: function(scope, element) {
+    .constant("LEVELS", [{
+            id: 1111,
+            value: "first",
+            text: "FIRST"
+        },
+        {
+            id: 2222,
+            value: "second",
+            text: "SECOND"
+        },
+        {
+            id: 3333,
+            value: "third",
+            text: "THIRD"
+        },
+        {
+            id: 4444,
+            value: "fourth",
+            text: "FOURTH"
+        },
+        {
+            id: 4444,
+            value: "fifth",
+            text: "FIFTH"
+        }
+    ])
+    .constant("MAPS", [{
+            id: 22,
+            value: "roadmap",
+            text: "ROADMAP"
+        },
+        {
+            id: 23,
+            value: "satellite",
+            text: "SATELLITE"
+        },
+        {
+            id: 24,
+            value: "hybrid",
+            text: "HYBRID"
+        },
+        {
+            id: 25,
+            value: "terrain",
+            text: "TERRAIN"
+        }
+    ])
+    /*
+                
+                .directive("hightlight", function() {
+                    return {
+                        restrict: 'A',
+                        link: function(scope, element) {
 
-                    element.on("mouseover", function(event) {
-                        angular.element(element).css({ color: scope.color })
+                            element.on("mouseover", function(event) {
+                                angular.element(element).css({ color: scope.color })
 
-                    })
-                    element.on("mouseout", function(event) {
-                        angular.element(element).css({ color: "black" })
-                    })
-                },
-                scope: { color: "@" }
-            };
-        })*/
+                            })
+                            element.on("mouseout", function(event) {
+                                angular.element(element).css({ color: "black" })
+                            })
+                        },
+                        scope: { color: "@" }
+                    };
+                })*/

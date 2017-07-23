@@ -131,8 +131,8 @@
             <div class="form-group" ng-show="presentUser" ng-cloak>
                 <label for="location" class="col-sm-4 control-label">Location(Latitude/Longitude)</label>
                 <div class="col-sm-6">
-                    <input strongborder border="" type="text" class="form-control location" ng-model="newUser.latitude">
-                    <input strongborder border="" type="text" class="form-control location longitude" ng-model="newUser.longitude">
+                    <input strongborder border="" type="text" class="form-control location" ng-model="newUser.latitude | number:3">
+                    <input strongborder border="" type="text" class="form-control location longitude" ng-model="newUser.longitude | number:3">
                 </div>
             </div>
 

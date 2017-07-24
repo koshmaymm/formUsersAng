@@ -47,3 +47,9 @@ angular.module("exampleApp")
             scope: { border: "@" }
         };
     })
+    .directive("myCustomer", function() {
+        return {
+            restrict: 'E',
+            templateUrl: 'customer.html'
+        };
+    })
